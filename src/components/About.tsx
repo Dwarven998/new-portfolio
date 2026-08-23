@@ -1,7 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Compass, Terminal, Sparkles, Layers } from 'lucide-react';
+import { Compass, Terminal, Sparkles, Layers, ShieldCheck, Cpu } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
+import { SpiderProfileTransformation } from './SpiderProfileTransformation';
 
 export const About: React.FC = () => {
   const editorialMetrics = [
@@ -53,29 +54,21 @@ export const About: React.FC = () => {
           <span className="ml-auto text-black/50 font-mono">PHILIPPINES</span>
         </div>
 
-        {/* Large Editorial Headline */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Large Editorial Headline & Main Profile Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
           
-          <div className="lg:col-span-6 space-y-8">
-            <h2 className="font-display text-3xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#121212] leading-tight">
-              Bridging engineering rigor with thoughtful visual craftsmanship.
-            </h2>
-
-            {/* Core Statement Quote */}
-            <div className="p-6 bg-white border border-black/10 border-l-4 border-l-black shadow-sm">
-              <p className="font-display text-lg sm:text-xl text-[#121212] font-semibold italic leading-relaxed">
-                "{PERSONAL_INFO.statement}"
-              </p>
-            </div>
-
-            <div className="space-y-4 text-black/70 text-sm sm:text-base leading-relaxed font-normal">
-              <p>
-                {PERSONAL_INFO.bioParagraphs[0]}
-              </p>
-              <p>
-                {PERSONAL_INFO.bioParagraphs[1]}
-              </p>
-            </div>
+          {/* Left Column: Interactive Spider-Man Transformation Profile Card + Technical Specifications */}
+          <div className="lg:col-span-5 space-y-6">
+            
+            {/* The Spider-Man Transformation Profile Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+            >
+              <SpiderProfileTransformation />
+            </motion.div>
 
             {/* Editorial Metadata Table */}
             <div className="border border-black/10 overflow-hidden bg-white shadow-sm">
@@ -96,56 +89,86 @@ export const About: React.FC = () => {
                 ))}
               </div>
             </div>
+
           </div>
 
-          {/* Right Column: Focus Areas & Architectural Mindset */}
-          <div className="lg:col-span-6 space-y-6">
-            <div className="flex items-center justify-between pb-2 border-b border-black/10">
-              <span className="font-mono text-xs text-black/60 uppercase tracking-wider font-bold">
-                Core Domains of Practice
-              </span>
-              <span className="font-mono text-xs text-black/40 font-bold">04 AREAS</span>
+          {/* Right Column: Bio, Statement, & Focus Areas */}
+          <div className="lg:col-span-7 space-y-8">
+            
+            <div className="space-y-4">
+              <h2 className="font-display text-3xl sm:text-5xl md:text-5xl lg:text-6xl font-black tracking-tight text-[#121212] leading-tight">
+                Bridging engineering rigor with thoughtful visual craftsmanship.
+              </h2>
+
+              {/* Core Statement Quote */}
+              <div className="p-6 bg-white border border-black/10 border-l-4 border-l-black shadow-sm">
+                <p className="font-display text-lg sm:text-xl text-[#121212] font-semibold italic leading-relaxed">
+                  "{PERSONAL_INFO.statement}"
+                </p>
+              </div>
+
+              <div className="space-y-4 text-black/70 text-sm sm:text-base leading-relaxed font-normal">
+                <p>
+                  {PERSONAL_INFO.bioParagraphs[0]}
+                </p>
+                <p>
+                  {PERSONAL_INFO.bioParagraphs[1]}
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 gap-4">
-              {focusAreas.map((area, index) => {
-                const IconComponent = area.icon;
-                return (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 15 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="p-6 bg-white border border-black/10 hover:border-black/40 hover:shadow-md transition-all group"
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 bg-black text-white group-hover:bg-zinc-800 transition-colors">
-                        <IconComponent className="w-4 h-4" />
+            {/* Focus Areas & Domains */}
+            <div className="space-y-4 pt-4 border-t border-black/10">
+              <div className="flex items-center justify-between pb-2">
+                <span className="font-mono text-xs text-black/60 uppercase tracking-wider font-bold">
+                  Core Domains of Practice
+                </span>
+                <span className="font-mono text-xs text-black/40 font-bold">04 AREAS</span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {focusAreas.map((area, index) => {
+                  const IconComponent = area.icon;
+                  return (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, y: 15 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ duration: 0.4, delay: index * 0.08 }}
+                      className="p-5 bg-white border border-black/10 hover:border-black/40 hover:shadow-md transition-all group flex flex-col justify-between"
+                    >
+                      <div>
+                        <div className="flex items-center gap-3 mb-2.5">
+                          <div className="p-1.5 bg-black text-white group-hover:bg-zinc-800 transition-colors">
+                            <IconComponent className="w-3.5 h-3.5" />
+                          </div>
+                          <h3 className="font-display text-base sm:text-lg font-bold text-[#121212]">
+                            {area.title}
+                          </h3>
+                        </div>
+
+                        <p className="text-black/70 text-xs leading-relaxed mb-4 font-normal">
+                          {area.desc}
+                        </p>
                       </div>
-                      <h3 className="font-display text-lg sm:text-xl font-bold text-[#121212]">
-                        {area.title}
-                      </h3>
-                    </div>
 
-                    <p className="text-black/70 text-xs sm:text-sm leading-relaxed mb-4 font-normal">
-                      {area.desc}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 pt-3 border-t border-black/5">
-                      {area.tags.map((tag, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-black/5 text-black/80 border border-black/10 font-medium"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                  </motion.div>
-                );
-              })}
+                      <div className="flex flex-wrap gap-1 pt-2.5 border-t border-black/5">
+                        {area.tags.map((tag, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="px-2 py-0.5 text-[9px] font-mono bg-black/5 text-black/80 border border-black/10 font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    </motion.div>
+                  );
+                })}
+              </div>
             </div>
+
           </div>
 
         </div>
