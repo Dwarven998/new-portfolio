@@ -57,32 +57,24 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
         <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between">
           
           {/* Brand Wordmark - Leftmost */}
-          <div className="flex items-center gap-3">
-            <a
-              href="#hero"
-              onClick={(e) => {
-                e.preventDefault();
-                onNavigate('hero');
-              }}
-              className="group flex items-center gap-3.5 focus:outline-none"
-              id="nav-brand-logo"
-            >
-              <div className="flex flex-col">
-                <span className="font-display text-2xl sm:text-2xl font-bold tracking-tight text-[#121212] transition-colors duration-200 group-hover:opacity-70">
-                  {PERSONAL_INFO.name}
-                </span>
-                <span className="font-mono text-[9px] tracking-[0.2em] text-black/40 uppercase -mt-0.5">
-                  Software + Design
-                </span>
-              </div>
-            </a>
-
-            {/* Availability Badge */}
-            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/5 border border-black/10 text-[10px] font-mono text-black/70">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-              <span>Available 2024</span>
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              onNavigate('hero');
+            }}
+            className="group flex items-center gap-3.5 focus:outline-none"
+            id="nav-brand-logo"
+          >
+            <div className="flex flex-col">
+              <span className="font-display text-2xl sm:text-2xl font-bold tracking-tight text-[#121212] transition-colors duration-200 group-hover:opacity-70">
+                {PERSONAL_INFO.name}
+              </span>
+              <span className="font-mono text-[9px] tracking-[0.2em] text-black/40 uppercase -mt-0.5">
+                Software + Design
+              </span>
             </div>
-          </div>
+          </a>
 
           {/* Desktop Navigation Links - Centered/Balanced */}
           <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10" id="desktop-nav-links">
@@ -155,11 +147,8 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
             className="md:hidden bg-[#F5F5F3] border-b border-black/10 px-6 py-5 shadow-xl space-y-4"
           >
             <div className="flex items-center justify-between text-xs font-mono text-black/50 border-b border-black/10 pb-3">
-              <span className="font-bold text-black">INDEX NAVIGATION</span>
-              <span className="text-emerald-700 font-medium flex items-center gap-1">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                Available 2024
-              </span>
+              <span className="font-bold text-black">NAVIGATION MENU</span>
+              <span className="text-black/40 text-[10px]">ALGIAN AQUILLO</span>
             </div>
 
             <div className="grid grid-cols-2 gap-2">
