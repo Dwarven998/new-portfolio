@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, useScroll, useSpring } from 'motion/react';
-import { Menu, X, ArrowUpRight, Clock, MapPin, Sparkles } from 'lucide-react';
+import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolioData';
 
 interface NavigationProps {
@@ -11,7 +11,6 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigate }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [timeString, setTimeString] = useState('');
 
   const { scrollYProgress } = useScroll();
   const scaleX = useSpring(scrollYProgress, {
@@ -26,28 +25,6 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
     };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Live Philippine Time (GMT+8)
-  useEffect(() => {
-    const updateTime = () => {
-      try {
-        const now = new Date();
-        const options: Intl.DateTimeFormatOptions = {
-          timeZone: 'Asia/Manila',
-          hour: '2-digit',
-          minute: '2-digit',
-          second: '2-digit',
-          hour12: false
-        };
-        setTimeString(now.toLocaleTimeString('en-US', options) + ' PHT');
-      } catch (e) {
-        setTimeString('UTC+8');
-      }
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
   }, []);
 
   const navItems = [
@@ -74,51 +51,41 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
           isScrolled
             ? 'bg-[#F5F5F3]/90 backdrop-blur-md border-b border-black/10 py-3.5 shadow-sm'
-            : 'bg-transparent py-5 sm:py-6 border-b border-transparent'
+            : 'bg-[#F5F5F3]/60 backdrop-blur-sm py-4 sm:py-5 border-b border-black/5'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+        <div className="w-full px-4 sm:px-6 md:px-8 lg:px-12 flex items-center justify-between">
           
-          {/* Brand Wordmark */}
-          <a
-            href="#hero"
-            onClick={(e) => {
-              e.preventDefault();
-              onNavigate('hero');
-            }}
-            className="group flex items-center gap-3 focus:outline-none"
-            id="nav-brand-logo"
-          >
-            <div className="flex flex-col">
-              <span className="font-display text-2xl font-bold tracking-tight text-[#121212] transition-colors duration-200 group-hover:opacity-70">
-                {PERSONAL_INFO.name}
-              </span>
-              <span className="font-mono text-[9px] tracking-[0.2em] text-black/40 uppercase -mt-0.5">
-                Software + Design
-              </span>
-            </div>
+          {/* Brand Wordmark - Leftmost */}
+          <div className="flex items-center gap-3">
+            <a
+              href="#hero"
+              onClick={(e) => {
+                e.preventDefault();
+                onNavigate('hero');
+              }}
+              className="group flex items-center gap-3.5 focus:outline-none"
+              id="nav-brand-logo"
+            >
+              <div className="flex flex-col">
+                <span className="font-display text-2xl sm:text-2xl font-bold tracking-tight text-[#121212] transition-colors duration-200 group-hover:opacity-70">
+                  {PERSONAL_INFO.name}
+                </span>
+                <span className="font-mono text-[9px] tracking-[0.2em] text-black/40 uppercase -mt-0.5">
+                  Software + Design
+                </span>
+              </div>
+            </a>
 
-            {/* Availability Indicator */}
-            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/5 border border-black/10 text-[10px] font-mono text-black/70">
+            {/* Availability Badge */}
+            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-black/5 border border-black/10 text-[10px] font-mono text-black/70">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
               <span>Available 2024</span>
             </div>
-          </a>
-
-          {/* Desktop Live Location / Time Status */}
-          <div className="hidden xl:flex items-center gap-4 text-[11px] font-mono text-black/50 border-x border-black/10 px-4 py-1">
-            <div className="flex items-center gap-1.5 text-black/60">
-              <MapPin className="w-3 h-3 text-black/40" />
-              <span>Philippines</span>
-            </div>
-            <div className="flex items-center gap-1.5 text-black/60">
-              <Clock className="w-3 h-3 text-black/40" />
-              <span>{timeString || 'GMT+8'}</span>
-            </div>
           </div>
 
-          {/* Desktop Navigation Links */}
-          <nav className="hidden md:flex items-center gap-6 lg:gap-8" id="desktop-nav-links">
+          {/* Desktop Navigation Links - Centered/Balanced */}
+          <nav className="hidden md:flex items-center gap-6 lg:gap-8 xl:gap-10" id="desktop-nav-links">
             {navItems.map((item) => {
               const sectionKey = item.href.replace('#', '');
               const isActive = activeSection === sectionKey;
@@ -131,10 +98,10 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
                     e.preventDefault();
                     onNavigate(sectionKey);
                   }}
-                  className={`relative py-1 text-[11px] uppercase tracking-[0.2em] transition-opacity duration-150 ${
+                  className={`relative py-1 text-[11px] uppercase tracking-[0.22em] transition-all duration-150 ${
                     isActive
                       ? 'text-black font-bold opacity-100'
-                      : 'text-black/60 hover:opacity-100 font-medium'
+                      : 'text-black/60 hover:text-black hover:opacity-100 font-medium'
                   }`}
                 >
                   {item.label}
@@ -151,7 +118,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
           </nav>
 
           {/* Desktop Quick CTA */}
-          <div className="hidden sm:flex items-center gap-3">
+          <div className="hidden sm:flex items-center">
             <a
               href="#contact"
               onClick={(e) => {
@@ -159,7 +126,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
                 onNavigate('contact');
               }}
               id="nav-cta-contact"
-              className="inline-flex items-center gap-1.5 px-4 py-2 bg-black text-white hover:bg-zinc-800 font-mono text-xs font-medium tracking-wide transition-all duration-200 shadow-sm active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2 px-4.5 py-2 bg-black text-white hover:bg-zinc-800 font-mono text-xs font-medium tracking-wider transition-all duration-200 shadow-sm active:scale-95 cursor-pointer"
             >
               <span>Get in Touch</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -188,7 +155,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeSection, onNavigat
             className="md:hidden bg-[#F5F5F3] border-b border-black/10 px-6 py-5 shadow-xl space-y-4"
           >
             <div className="flex items-center justify-between text-xs font-mono text-black/50 border-b border-black/10 pb-3">
-              <span>MANILA: {timeString}</span>
+              <span className="font-bold text-black">INDEX NAVIGATION</span>
               <span className="text-emerald-700 font-medium flex items-center gap-1">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 Available 2024

@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
             </div>
             <div className="text-black/60 flex items-center md:justify-end gap-2 font-medium">
               <MapPin className="w-3.5 h-3.5 text-black/50" />
-              <span>{PERSONAL_INFO.coordinates}</span>
+              <span>{PERSONAL_INFO.location}</span>
             </div>
           </div>
 

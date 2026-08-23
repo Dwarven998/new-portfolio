@@ -27,8 +27,6 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
             <span>INDEX // 2024 — 2025</span>
             <span className="text-black/20">•</span>
             <span className="text-emerald-700 font-semibold">AVAILABLE FOR SELECTED PROJECTS 2024</span>
-            <span className="text-black/20">•</span>
-            <span>MANILA [14.59°N, 120.98°E]</span>
           </div>
         </div>
       </div>
@@ -101,7 +99,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onContactClick }) =>
                   </p>
                 </div>
                 <div className="pt-3 flex items-center justify-between border-t border-black/5 mt-2 text-[10px] font-mono text-black/50">
-                  <span>MANILA, PH</span>
+                  <span>PHILIPPINES</span>
                   <span className="font-bold text-black">OPEN FOR CLIENTS</span>
                 </div>
               </div>

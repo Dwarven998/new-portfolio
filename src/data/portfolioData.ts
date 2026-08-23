@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   educationStatus: 'BS Information Technology Student & Aspiring Software Engineer',
   tagline: 'I build digital experiences where code meets design.',
   location: 'Philippines',
-  coordinates: '14.5995° N, 120.9842° E',
+  coordinates: 'Philippines',
   timezone: 'GMT+8 (Asia/Manila)',
   status: 'AVAILABLE FOR SELECTED PROJECTS',
   email: 'algian.aquillo@gmail.com',

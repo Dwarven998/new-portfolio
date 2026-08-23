@@ -47,12 +47,12 @@ export const Hero3DFold: React.FC<Hero3DFoldProps> = ({ interactive = true }) =>
       onMouseLeave={handleMouseLeave}
       className="relative w-full h-[400px] sm:h-[460px] md:h-[520px] flex items-center justify-center perspective-2000 select-none cursor-grab active:cursor-grabbing"
     >
-      {/* Vertical Coordinate Label */}
+      {/* Vertical Side Motif Label */}
       <div 
         className="hidden sm:block absolute -right-6 top-8 text-[9px] uppercase tracking-[0.25em] text-black/40 py-2 border-r border-black/10 h-64 pointer-events-none select-none"
         style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
       >
-        Based in the Philippines • (14.5995° N, 120.9842° E)
+        Software Engineering & Interface Design // 2024 — 2025
       </div>
 
       {/* 3D Root Container */}

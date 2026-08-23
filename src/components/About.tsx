@@ -8,7 +8,7 @@ export const About: React.FC = () => {
   const editorialMetrics = [
     { label: 'ROLE', value: 'Freelance Developer & UI/UX Designer' },
     { label: 'STATUS', value: 'BS IT Student / Aspiring Software Engineer' },
-    { label: 'LOCATION', value: 'Philippines [14.59°N, 120.98°E]' },
+    { label: 'LOCATION', value: 'Philippines' },
     { label: 'FOCUS', value: 'Full-Stack Architecture & Reactive UI' },
     { label: 'AVAILABILITY', value: 'Open for Freelance & Collaborative Projects 2024' },
     { label: 'CONTINUOUS LEARNING', value: 'Distributed Systems & AI Orchestration' },
