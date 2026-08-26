@@ -12,7 +12,7 @@ export const PERSONAL_INFO = {
   status: 'AVAILABLE FOR SELECTED PROJECTS',
   email: 'algian.aquillo@gmail.com',
   github: 'https://github.com',
-  linkedin: 'https://linkedin.com',
+  linkedin: 'https://www.linkedin.com/in/algian-aquillo-370497145/',
   statement: 'I enjoy turning ideas into functional, thoughtful, and visually engaging digital experiences.',
   bioParagraphs: [
     'I am a BS Information Technology student and aspiring Software Engineer who bridges the gap between engineering rigor and visual elegance. My work spans custom full-stack web applications, native mobile interfaces, and AI-enabled digital products.',
@@ -219,7 +219,7 @@ export const EXPERIENCES: ExperienceItem[] = [
     organization: 'BS Information Technology Project Cohort',
     category: 'Academic Projects',
     period: '2024 — Present',
-    location: 'University / Philippines',
+    location: 'Cebu Institute Of Technology University / Philippines',
     description: 'Spearheading the engineering and user experience of multi-platform academic software initiatives (including Cognita and ServiceLink), bridging backend micro-services with web and native mobile apps.',
     responsibilities: [
       'Architecting relational schema designs, entity relationships, and API contract specifications',
@@ -258,8 +258,8 @@ export const EXPERIENCES: ExperienceItem[] = [
     role: 'Student Leader & Technical Contributor',
     organization: 'IT Student Society & University Technology Initiatives',
     category: 'Leadership / Organizations',
-    period: '2022 — 2024',
-    location: 'University / Philippines',
+    period: '2023 — 2024',
+    location: 'Cebu Institute Of Technology University / Philippines',
     description: 'Actively participating in student technology organizations, facilitating peer programming sessions, and contributing to campus digital community initiatives.',
     responsibilities: [
       'Organizing knowledge-sharing workshops on foundational web development, Git version control, and UI design',
@@ -378,7 +378,7 @@ export const CERTIFICATIONS: Certification[] = [
 
 export const EDUCATION_INFO: Education = {
   degree: 'Bachelor of Science in Information Technology',
-  institution: 'University / Institute of Technology',
+  institution: 'Cebu Institute Of Technology University',
   level: 'Undergraduate Degree (Active Pursuit)',
   yearPeriod: '2022 — Present (Expected 2026)',
   location: 'Philippines',

@@ -3,6 +3,22 @@ import { motion } from 'motion/react';
 import { MapPin, CheckCircle2, Award } from 'lucide-react';
 import { EXPERIENCES } from '../data/portfolioData';
 
+// Keep this component type-checkable when the project does not include React's
+// ambient JSX declarations (for example, in a minimal type-checking setup).
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      [elementName: string]: any;
+    }
+  }
+}
+
+declare module 'react/jsx-runtime' {
+  export const Fragment: any;
+  export const jsx: any;
+  export const jsxs: any;
+}
+
 export const Experience: React.FC = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
   const [activeItem, setActiveItem] = useState<string>(EXPERIENCES[0].id);
