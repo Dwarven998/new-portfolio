@@ -11,7 +11,7 @@ export const PERSONAL_INFO = {
   timezone: 'GMT+8 (Asia/Manila)',
   status: 'AVAILABLE FOR SELECTED PROJECTS',
   email: 'algian.aquillo@gmail.com',
-  github: 'https://github.com',
+  github: 'https://github.comhttps://github.com/Dwarven998',
   linkedin: 'https://www.linkedin.com/in/algian-aquillo-370497145/',
   statement: 'I enjoy turning ideas into functional, thoughtful, and visually engaging digital experiences.',
   bioParagraphs: [
